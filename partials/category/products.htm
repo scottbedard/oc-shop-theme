@@ -1,0 +1,20 @@
+description = "Displays the products in a category"
+==
+{% for row in products|batch(category.page_columns) %}
+    <div class="row text-center">
+        {% for product in row %}
+            <div class="col-md-{{ (12 / category.page_columns)|round }} col-sm-12 hero-feature">
+                <div class="thumbnail">
+                    <img src="http://placehold.it/800x500" alt="">
+                    <div class="caption">
+                        <h3>{{ product.name }}</h3>
+                        {{ product.short_description_html|raw }}
+                        <p>
+                            <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endfor %}
