@@ -8,7 +8,15 @@ description = "Displays the products in a category"
                     <img src="http://placehold.it/800x500" alt="">
                     <div class="caption">
                         <h3>{{ product.name }}</h3>
+
+                        {% if product.isDiscounted() %}
+                            <s>{{ product.base_price|currency }}</s>
+                        {% endif %}
+
+                        {{ product.price|currency }}
+
                         {{ product.short_description_html|raw }}
+
                         <p>
                             <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
                         </p>
