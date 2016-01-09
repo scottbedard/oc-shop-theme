@@ -1,0 +1,21 @@
+title = "category"
+url = "/:slug?"
+layout = "default"
+is_hidden = 0
+
+[shopCategory]
+slug = "{{ :slug }}"
+==
+<!-- Title -->
+<div class="row">
+    <div class="col-lg-12">
+        <h3>{{ shopCategory.category.name }}</h3>
+    </div>
+</div>
+
+<!-- Products -->
+{%
+    partial 'category/products'
+    category = shopCategory.category
+    products = shopCategory.products
+%}
