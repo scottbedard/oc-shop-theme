@@ -1,3 +1,5 @@
+[shopNavigation]
+==
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -11,15 +13,11 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
+                {% for category in shopNavigation.categories %}
+                    <li>
+                        <a href="#">{{ category.name }}</a>
+                    </li>
+                {% endfor %}
             </ul>
         </div>
     </div>
