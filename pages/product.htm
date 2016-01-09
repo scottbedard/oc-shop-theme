@@ -1,0 +1,25 @@
+title = "Product"
+url = "/product/:slug"
+layout = "default"
+is_hidden = 0
+
+[shopProduct]
+slug = "{{ :slug }}"
+==
+<div class="row">
+    <div class="col-md-3">
+        <p class="lead">{{ shopProduct.product.name }}</p>
+
+        {% partial 'product/price' product=shopProduct.product %}
+
+        <p>
+            <a href="#" class="btn btn-primary">Add to cart</a>
+        </p>
+    </div>
+    <div class="col-md-9">
+        <img class="img-responsive" src="http://placehold.it/800x300" alt="">
+        <div class="caption-full">
+            {{ shopProduct.product.description_html|raw }}
+        </div>
+    </div>
+</div>
