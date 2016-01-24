@@ -19,6 +19,13 @@
                     </li>
                 {% endfor %}
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="{{ 'cart'|page }}">
+                        View cart (<span data-partial="cart-count">{% partial 'cart/count' %}</span>)
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>

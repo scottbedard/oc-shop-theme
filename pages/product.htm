@@ -11,12 +11,15 @@ use_inventory_selector = 1
     <div class="col-md-3">
         <p class="lead">{{ shopProduct.product.name }}</p>
 
-        {% partial 'product/price' product=shopProduct.product %}
-        {% partial 'shopProduct::inventories' product=shopProduct.product %}
+        <form
+            data-request="shopCart::onAddToCart"
+            data-request-data="product: {{ shopProduct.product.id }}"
+            data-request-update="'cart/count': '[data-partial=cart-count]'">
+            {% partial 'product/price' product=shopProduct.product %}
+            {% partial 'shopProduct::inventories' product=shopProduct.product %}
+            <button type="submit" class="btn btn-primary">Add to cart</button>
+        </form>
 
-        <p>
-            <a href="#" class="btn btn-primary">Add to cart</a>
-        </p>
     </div>
     <div class="col-md-9">
         <img class="img-responsive" src="http://placehold.it/800x300" alt="">
