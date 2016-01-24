@@ -3,4 +3,9 @@ url = "/cart"
 layout = "default"
 is_hidden = 0
 ==
-Cart
+<div>
+    <h1>Cart</h1>
+    <div data-partial="cart-contents">
+        {% partial 'cart/contents' %}
+    </div>
+</div>

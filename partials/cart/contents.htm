@@ -1,0 +1,29 @@
+{% if shopCart.isEmpty() %}
+        <p>The cart is empty, you should buy something.</p>
+    {% else %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in shopCart.items %}
+                    <tr>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>
+                            <a href="#"
+                                data-request="shopCart::onRemoveFromCart"
+                                data-request-data="id: {{ item.id }}"
+                                data-request-update="'cart/contents': '[data-partial=cart-contents]'">
+                                Remove
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
